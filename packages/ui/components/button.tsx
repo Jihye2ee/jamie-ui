@@ -8,7 +8,7 @@ import { cn } from "../utils/cn"
 
 const iconButtonVariants = cva(
   cn(
-    `inline-flex shrink-0 items-center justify-center transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)] disabled:cursor-not-allowed disabled:text-disabled`,
+    `inline-flex shrink-0 items-center justify-center transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused) disabled:cursor-not-allowed disabled:text-disabled`,
     `disabled:pointer-events-none disabled:[&_svg]:fill-disabled`,
   ),
   {
@@ -32,7 +32,7 @@ const iconButtonVariants = cva(
 
 const buttonVariants = cva(
   cn(
-    `relative inline-flex items-center justify-center overflow-hidden transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)] disabled:cursor-not-allowed disabled:border-transparent disabled:bg-disabled disabled:text-disabled disabled:before:hidden disabled:hover:bg-disabled`,
+    `relative inline-flex items-center justify-center overflow-hidden transition-colors duration-200 ease-out focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused) disabled:cursor-not-allowed disabled:border-transparent disabled:bg-disabled disabled:text-disabled disabled:before:hidden disabled:hover:bg-disabled`,
   ),
   {
     variants: {

@@ -65,19 +65,19 @@ export function CheckboxItem({
           "inline-flex shrink-0 cursor-pointer items-center justify-center border transition-colors duration-150 ease-out",
           "border-strong bg-input-default",
           "hover:bg-input-hovered",
-          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)]",
-          "data-[checked]:border-transparent data-[checked]:bg-neutral-bold-default data-[checked]:hover:bg-neutral-bold-hovered",
-          "data-[indeterminate]:border-transparent data-[indeterminate]:bg-neutral-bold-default data-[indeterminate]:hover:bg-neutral-bold-hovered",
-          "data-[disabled]:cursor-not-allowed data-[disabled]:border-disabled data-[disabled]:bg-input-disabled data-[disabled]:hover:bg-input-disabled",
-          "data-[disabled]:data-[checked]:border-transparent data-[disabled]:data-[checked]:bg-disabled data-[disabled]:data-[checked]:hover:bg-disabled",
-          "data-[disabled]:data-[indeterminate]:border-transparent data-[disabled]:data-[indeterminate]:bg-disabled data-[disabled]:data-[indeterminate]:hover:bg-disabled",
+          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused)",
+          "data-checked:border-transparent data-checked:bg-neutral-bold-default data-checked:hover:bg-neutral-bold-hovered",
+          "data-indeterminate:border-transparent data-indeterminate:bg-neutral-bold-default data-indeterminate:hover:bg-neutral-bold-hovered",
+          "data-disabled:cursor-not-allowed data-disabled:border-disabled data-disabled:bg-input-disabled data-disabled:hover:bg-input-disabled",
+          "data-disabled:data-checked:border-transparent data-disabled:data-checked:bg-disabled data-disabled:data-checked:hover:bg-disabled",
+          "data-disabled:data-indeterminate:border-transparent data-disabled:data-indeterminate:bg-disabled data-disabled:data-indeterminate:hover:bg-disabled",
           sizeClasses[size],
           className,
         )}
       >
         <BaseCheckbox.Indicator
           keepMounted
-          className="flex items-center justify-center text-inverse data-[unchecked]:hidden"
+          className="flex items-center justify-center text-inverse data-unchecked:hidden"
           render={(renderProps, state) => (
             <span {...renderProps}>
               {state.indeterminate ? (

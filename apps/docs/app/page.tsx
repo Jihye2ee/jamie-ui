@@ -34,13 +34,13 @@ export default function HomePage() {
           <div className="mt-8 flex items-center justify-center gap-3">
             <Link
               href="/docs"
-              className="body-14-medium inline-flex h-10 items-center justify-center rounded-lg bg-brand-default px-6 text-inverse transition-colors hover:bg-brand-hovered"
+              className="bg-brand-default hover:bg-brand-hovered inline-flex h-10 items-center justify-center rounded-lg px-6 body-14-medium text-inverse transition-colors"
             >
               Get Started
             </Link>
             <Link
               href="/playground"
-              className="body-14-medium inline-flex h-10 items-center justify-center rounded-lg border border-default px-6 text-default transition-colors hover:bg-interaction-hovered"
+              className="inline-flex h-10 items-center justify-center rounded-lg border border-default px-6 body-14-medium text-default transition-colors hover:bg-interaction-hovered"
             >
               Playground
             </Link>

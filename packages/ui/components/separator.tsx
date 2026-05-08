@@ -15,7 +15,7 @@ export type SeparatorProps = Omit<
 export function Separator({ className, ...props }: SeparatorProps) {
   return (
     <BaseSeparator
-      className={cn("border-default my-2 border-t", className)}
+      className={cn("my-2 border-t border-default", className)}
       {...props}
     />
   )

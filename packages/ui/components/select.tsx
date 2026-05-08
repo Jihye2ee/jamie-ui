@@ -51,7 +51,7 @@ export function SelectTrigger({
     <BaseSelect.Trigger
       disabled={disabled}
       className={cn(
-        "inline-flex w-full items-center justify-between gap-1 border bg-input-default text-default transition-colors outline-none hover:bg-input-hovered focus:border-focused focus:ring-1 focus:ring-[var(--border-color-focused)] data-[disabled]:cursor-not-allowed data-[disabled]:border-input data-[disabled]:bg-input-disabled data-[disabled]:text-disabled data-[disabled]:hover:bg-input-disabled data-[popup-open]:border-focused data-[popup-open]:ring-1 data-[popup-open]:ring-[var(--border-color-focused)]",
+        "inline-flex w-full items-center justify-between gap-1 border bg-input-default text-default transition-colors outline-none hover:bg-input-hovered focus:border-focused focus:ring-1 focus:ring-(--border-color-focused) data-disabled:cursor-not-allowed data-disabled:border-input data-disabled:bg-input-disabled data-disabled:text-disabled data-disabled:hover:bg-input-disabled data-popup-open:border-focused data-popup-open:ring-1 data-popup-open:ring-(--border-color-focused)",
         error
           ? "border-error ring-1 ring-[var(--border-color-error)]"
           : "border-input",
@@ -61,7 +61,7 @@ export function SelectTrigger({
     >
       <BaseSelect.Value
         placeholder={placeholder}
-        className="truncate data-[placeholder]:text-placeholder"
+        className="truncate data-placeholder:text-placeholder"
       />
       <BaseSelect.Icon className="shrink-0 text-subtle">
         <CaretDownIcon size={16} />
@@ -93,7 +93,7 @@ export function SelectContent({
       >
         <BaseSelect.Popup
           className={cn(
-            "min-w-[var(--anchor-width)] origin-[var(--transform-origin)] rounded-lg bg-elevation-surface-overlay-default p-1.5 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "min-w-(--anchor-width) origin-(--transform-origin) rounded-lg bg-elevation-surface-overlay-default p-1.5 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             className,
           )}
         >
@@ -122,7 +122,7 @@ export function SelectItem({
       value={value}
       disabled={disabled}
       className={cn(
-        "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 body-14-regular text-default outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:text-disabled data-[highlighted]:bg-interaction-hovered data-[selected]:body-14-medium",
+        "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 body-14-regular text-default outline-none select-none data-disabled:pointer-events-none data-disabled:text-disabled data-highlighted:bg-interaction-hovered data-selected:body-14-medium",
         className,
       )}
     >

@@ -40,7 +40,7 @@ export function PlaygroundClient() {
   }
 
   return (
-    <div className="bg-elevation-surface-sunken-default flex h-screen flex-col text-default">
+    <div className="flex h-screen flex-col bg-elevation-surface-sunken-default text-default">
       <header className="flex h-11 shrink-0 items-center justify-between border-b border-subtle px-4">
         <div className="flex items-center gap-2">
           <Link
@@ -54,7 +54,7 @@ export function PlaygroundClient() {
         <button
           type="button"
           onClick={toggleTheme}
-          className="flex h-8 w-8 items-center justify-center rounded-md text-subtle transition-colors hover:bg-interaction-hovered hover:text-default"
+          className="flex size-8 items-center justify-center rounded-md text-subtle transition-colors hover:bg-interaction-hovered hover:text-default"
           title={isDark ? "Switch to light mode" : "Switch to dark mode"}
         >
           {isDark ? <SunIcon size={16} /> : <MoonIcon size={16} />}

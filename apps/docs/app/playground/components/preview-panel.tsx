@@ -62,7 +62,7 @@ export function PreviewPanel({
         }
       />
 
-      <div className="bg-elevation-surface-raised-default flex-1 overflow-auto p-4">
+      <div className="flex-1 overflow-auto bg-elevation-surface-raised-default p-4">
         {tab === "preview" ? (
           hasSpec ? (
             <StateProvider initialState={spec.state ?? {}}>

@@ -370,7 +370,7 @@ export const { registry } = defineRegistry(catalog, {
           <div className="flex-1">
             <p className="title-14-semibold text-default">{props.title}</p>
             {props.description && (
-              <p className="body-12-medium mt-0.5 text-subtle">
+              <p className="mt-0.5 body-12-medium text-subtle">
                 {props.description}
               </p>
             )}

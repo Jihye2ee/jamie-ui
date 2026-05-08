@@ -37,7 +37,7 @@ export function MenuContent({
       <BaseMenu.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BaseMenu.Popup
           className={cn(
-            "min-w-40 origin-[var(--transform-origin)] rounded-lg bg-elevation-surface-overlay-default p-1.5 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "min-w-40 origin-(--transform-origin) rounded-lg bg-elevation-surface-overlay-default p-1.5 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             className,
           )}
         >
@@ -68,7 +68,7 @@ export function MenuItem({
       onClick={onClick}
       disabled={disabled}
       className={cn(
-        "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 body-14-regular outline-none select-none data-[disabled]:pointer-events-none data-[disabled]:text-disabled data-[highlighted]:bg-interaction-hovered",
+        "flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 body-14-regular outline-none select-none data-disabled:pointer-events-none data-disabled:text-disabled data-highlighted:bg-interaction-hovered",
         danger
           ? "text-error data-[highlighted]:bg-error-default"
           : "text-default",

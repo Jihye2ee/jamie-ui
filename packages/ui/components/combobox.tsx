@@ -18,19 +18,19 @@ const chipsSizeClasses = {
 } as const
 
 const popupClasses = cn(
-  "min-w-[var(--anchor-width)] origin-[var(--transform-origin)] rounded-lg p-1.5",
+  "min-w-(--anchor-width) origin-(--transform-origin) rounded-lg p-1.5",
   "bg-elevation-surface-overlay-default",
   "shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)]",
   "transition-[transform,scale,opacity] outline-none",
-  "data-[ending-style]:scale-95 data-[ending-style]:opacity-0",
-  "data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+  "data-ending-style:scale-95 data-ending-style:opacity-0",
+  "data-starting-style:scale-95 data-starting-style:opacity-0",
 )
 
 const itemClasses = cn(
   "group flex cursor-default items-center gap-2 rounded-md px-2 py-1.5 body-14-regular text-default",
   "outline-none select-none",
-  "data-[highlighted]:bg-interaction-hovered",
-  "data-[selected]:body-14-medium",
+  "data-highlighted:bg-interaction-hovered",
+  "data-selected:body-14-medium",
 )
 
 export type ComboboxProps<T> = {
@@ -78,7 +78,7 @@ export function Combobox<T>({
             "bg-input-default text-default transition-colors outline-none",
             "placeholder:text-placeholder",
             "hover:bg-input-hovered",
-            "focus:border-focused focus:ring-1 focus:ring-[var(--border-color-focused)]",
+            "focus:border-focused focus:ring-1 focus:ring-(--border-color-focused)",
             "disabled:cursor-not-allowed disabled:border-disabled disabled:bg-input-disabled disabled:text-disabled disabled:placeholder:text-disabled",
             error
               ? "border-error ring-1 ring-[var(--border-color-error)]"
@@ -110,7 +110,7 @@ export function Combobox<T>({
                   className={itemClasses}
                 >
                   <BaseCombobox.ItemIndicator
-                    className="invisible inline-flex size-4 items-center justify-center text-default data-[selected]:visible"
+                    className="invisible inline-flex size-4 items-center justify-center text-default data-selected:visible"
                     keepMounted
                   >
                     <CheckIcon size={14} weight="bold" />
@@ -220,7 +220,7 @@ export function MultiCombobox<T>({
                   className={itemClasses}
                 >
                   <BaseCombobox.ItemIndicator
-                    className="invisible inline-flex size-4 items-center justify-center text-default data-[selected]:visible"
+                    className="invisible inline-flex size-4 items-center justify-center text-default data-selected:visible"
                     keepMounted
                   >
                     <CheckIcon size={14} weight="bold" />

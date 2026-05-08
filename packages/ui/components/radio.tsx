@@ -49,12 +49,12 @@ export function RadioItem({
       value={value}
       disabled={disabled}
       className={cn(
-        "hover:bg-input-hovered focus-visible:outline-[var(--border-color-focused)]",
-        "data-[checked]:border-selected data-[checked]:hover:border-bold",
-        "data-[disabled]:border-disabled data-[disabled]:bg-input-disabled data-[disabled]:hover:bg-input-disabled",
-        "data-[disabled]:data-[checked]:border-disabled data-[disabled]:data-[checked]:hover:border-disabled",
+        "hover:bg-input-hovered focus-visible:outline-(--border-color-focused)",
+        "data-checked:border-selected data-checked:hover:border-bold",
+        "data-disabled:border-disabled data-disabled:bg-input-disabled data-disabled:hover:bg-input-disabled",
+        "data-disabled:data-checked:border-disabled data-disabled:data-checked:hover:border-disabled",
         "inline-flex shrink-0 cursor-pointer items-center justify-center border border-input bg-input-default transition-colors duration-150 ease-out focus-visible:outline-2 focus-visible:outline-offset-2",
-        "data-[disabled]:cursor-not-allowed",
+        "data-disabled:cursor-not-allowed",
         radioSizeClasses[size],
         className,
       )}

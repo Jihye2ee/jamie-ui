@@ -7,25 +7,25 @@ import { cn } from "../utils/cn"
 
 const thumbClasses = cn(
   "size-4 -translate-1/2 rounded-full border-2 border-selected bg-elevation-surface-default shadow-sm transition-colors duration-150 ease-out",
-  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)]",
+  "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused)",
   "hover:border-bold",
-  "data-[dragging]:border-bold",
-  "data-[disabled]:border-disabled data-[disabled]:bg-elevation-surface-default data-[disabled]:shadow-none",
+  "data-dragging:border-bold",
+  "data-disabled:border-disabled data-disabled:bg-elevation-surface-default data-disabled:shadow-none",
 )
 
 const trackClasses = cn(
   "relative h-1.5 w-full rounded-full bg-neutral-default",
-  "data-[disabled]:bg-disabled",
+  "data-disabled:bg-disabled",
 )
 
 const indicatorClasses = cn(
   "rounded-full bg-neutral-bold-default",
-  "data-[disabled]:bg-disabled",
+  "data-disabled:bg-disabled",
 )
 
 const controlClasses = cn(
   "flex cursor-pointer items-center py-1",
-  "data-[disabled]:cursor-not-allowed",
+  "data-disabled:cursor-not-allowed",
 )
 
 type SliderProps = Omit<ComponentProps<typeof BaseSlider.Root>, "className"> & {

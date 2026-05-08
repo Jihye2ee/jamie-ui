@@ -43,7 +43,7 @@ export function PopoverContent({
       <BasePopover.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BasePopover.Popup
           className={cn(
-            "max-w-xs origin-[var(--transform-origin)] rounded-lg bg-elevation-surface-overlay-default p-4 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0",
+            "max-w-xs origin-(--transform-origin) rounded-lg bg-elevation-surface-overlay-default p-4 shadow-[0_6px_12px_0_var(--shadow-color-elevation-default),0_0px_1px_0_var(--shadow-color-elevation-strong)] transition-[transform,scale,opacity] outline-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             className,
           )}
         >

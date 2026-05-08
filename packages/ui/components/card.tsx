@@ -21,16 +21,16 @@ export function Card({
   return (
     <div
       className={cn(
-        "rounded-xl border border-default bg-default p-6",
+        "bg-default rounded-xl border border-default p-6",
         className,
       )}
       {...props}
     >
       {title && (
-        <h3 className="title-16-semibold text-default mb-1">{title}</h3>
+        <h3 className="mb-1 title-16-semibold text-default">{title}</h3>
       )}
       {description && (
-        <p className="body-12-medium text-subtle mb-4">{description}</p>
+        <p className="mb-4 body-12-medium text-subtle">{description}</p>
       )}
       {children && <div className="flex flex-col gap-4">{children}</div>}
     </div>

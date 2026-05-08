@@ -13,9 +13,9 @@ const tabVariants = cva(
   cn(
     "relative inline-flex cursor-pointer items-center justify-center whitespace-nowrap transition-colors duration-200 ease-out outline-none select-none",
     "text-subtle hover:text-default",
-    "data-[active]:text-default",
-    "data-[disabled]:cursor-not-allowed data-[disabled]:text-disabled data-[disabled]:hover:text-disabled",
-    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)]",
+    "data-active:text-default",
+    "data-disabled:cursor-not-allowed data-disabled:text-disabled data-disabled:hover:text-disabled",
+    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused)",
   ),
   {
     variants: {
@@ -86,7 +86,7 @@ export function TabsIndicator({ className, ...props }: TabsIndicatorProps) {
   return (
     <BaseTabs.Indicator
       className={cn(
-        "absolute -bottom-px h-0.5 w-[var(--active-tab-width)] translate-x-[var(--active-tab-left)] rounded-full bg-neutral-bold-default transition-[translate,width] duration-200 ease-out",
+        "absolute -bottom-px h-0.5 w-(--active-tab-width) translate-x-(--active-tab-left) rounded-full bg-neutral-bold-default transition-[translate,width] duration-200 ease-out",
         className,
       )}
       {...props}
