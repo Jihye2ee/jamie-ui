@@ -218,10 +218,7 @@ export const catalog = defineCatalog(schema, {
     Dialog: {
       props: z.object({
         title: z.string().describe("Dialog title"),
-        description: z
-          .string()
-          .nullable()
-          .describe("Dialog description text"),
+        description: z.string().nullable().describe("Dialog description text"),
         size: z
           .enum(["default", "md", "lg"])
           .nullable()
@@ -233,10 +230,7 @@ export const catalog = defineCatalog(schema, {
     AlertDialog: {
       props: z.object({
         title: z.string().describe("Alert dialog title"),
-        description: z
-          .string()
-          .nullable()
-          .describe("Alert description text"),
+        description: z.string().nullable().describe("Alert description text"),
         confirmLabel: z
           .string()
           .nullable()
@@ -267,10 +261,7 @@ export const catalog = defineCatalog(schema, {
           .boolean()
           .nullable()
           .describe("Show as danger/destructive item"),
-        disabled: z
-          .boolean()
-          .nullable()
-          .describe("Disable this menu item"),
+        disabled: z.boolean().nullable().describe("Disable this menu item"),
       }),
       description: "Single item inside Menu.",
     },
@@ -280,20 +271,14 @@ export const catalog = defineCatalog(schema, {
           .string()
           .describe("Text for the popover trigger button"),
         title: z.string().nullable().describe("Popover heading"),
-        description: z
-          .string()
-          .nullable()
-          .describe("Popover description text"),
+        description: z.string().nullable().describe("Popover description text"),
       }),
       description:
         "Small overlay anchored to trigger. Children render as additional popover body content.",
     },
     Combobox: {
       props: z.object({
-        placeholder: z
-          .string()
-          .nullable()
-          .describe("Input placeholder text"),
+        placeholder: z.string().nullable().describe("Input placeholder text"),
         inputSize: z
           .enum(["md", "sm"])
           .nullable()
@@ -314,10 +299,7 @@ export const catalog = defineCatalog(schema, {
     Toast: {
       props: z.object({
         title: z.string().describe("Toast notification title"),
-        description: z
-          .string()
-          .nullable()
-          .describe("Toast body text"),
+        description: z.string().nullable().describe("Toast body text"),
         appearance: z
           .enum(["default", "warning", "error", "success"])
           .nullable()

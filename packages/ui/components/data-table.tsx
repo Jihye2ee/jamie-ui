@@ -1,6 +1,11 @@
-'use client'
+"use client"
 
-import { ArrowDownIcon, ArrowsDownUpIcon, ArrowUpIcon, SpinnerGapIcon } from '@phosphor-icons/react'
+import {
+  ArrowDownIcon,
+  ArrowsDownUpIcon,
+  ArrowUpIcon,
+  SpinnerGapIcon,
+} from "@phosphor-icons/react"
 import {
   type ColumnDef,
   flexRender,
@@ -9,12 +14,19 @@ import {
   getSortedRowModel,
   type SortingState,
   useReactTable,
-} from '@tanstack/react-table'
-import { useState } from 'react'
+} from "@tanstack/react-table"
+import { useState } from "react"
 
-import { cn } from '../utils/cn'
-import { Button } from './button'
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from './table'
+import { cn } from "../utils/cn"
+import { Button } from "./button"
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "./table"
 
 type DataTableProps<TData> = {
   columns: ColumnDef<TData, unknown>[]
@@ -23,7 +35,12 @@ type DataTableProps<TData> = {
   loading?: boolean
 }
 
-export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataTableProps<TData>) {
+export function DataTable<TData>({
+  columns,
+  data,
+  pageSize = 5,
+  loading,
+}: DataTableProps<TData>) {
   const [sorting, setSorting] = useState<SortingState>([])
 
   const table = useReactTable({
@@ -49,22 +66,31 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
                 {headerGroup.headers.map((header) => {
                   const align = header.column.columnDef.meta?.align
                   return (
-                    <TableHead key={header.id} className={cn(align === 'right' && 'text-right')}>
+                    <TableHead
+                      key={header.id}
+                      className={cn(align === "right" && "text-right")}
+                    >
                       {header.isPlaceholder ? null : header.column.getCanSort() ? (
                         <button
                           type="button"
                           className={cn(
-                            'inline-flex cursor-pointer items-center gap-1 select-none',
-                            header.column.getIsSorted() && 'text-default',
-                            align === 'right' && 'ml-auto',
+                            "inline-flex cursor-pointer items-center gap-1 select-none",
+                            header.column.getIsSorted() && "text-default",
+                            align === "right" && "ml-auto",
                           )}
                           onClick={header.column.getToggleSortingHandler()}
                         >
-                          {flexRender(header.column.columnDef.header, header.getContext())}
+                          {flexRender(
+                            header.column.columnDef.header,
+                            header.getContext(),
+                          )}
                           <SortIcon direction={header.column.getIsSorted()} />
                         </button>
                       ) : (
-                        flexRender(header.column.columnDef.header, header.getContext())
+                        flexRender(
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )
                       )}
                     </TableHead>
                   )
@@ -79,8 +105,14 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
                   {row.getVisibleCells().map((cell) => {
                     const align = cell.column.columnDef.meta?.align
                     return (
-                      <TableCell key={cell.id} className={cn(align === 'right' && 'text-right')}>
-                        {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                      <TableCell
+                        key={cell.id}
+                        className={cn(align === "right" && "text-right")}
+                      >
+                        {flexRender(
+                          cell.column.columnDef.cell,
+                          cell.getContext(),
+                        )}
                       </TableCell>
                     )
                   })}
@@ -88,7 +120,10 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
               ))
             ) : (
               <TableRow className="hover:bg-transparent">
-                <TableCell colSpan={columns.length} className="h-24 text-center text-subtle">
+                <TableCell
+                  colSpan={columns.length}
+                  className="h-24 text-center text-subtle"
+                >
                   결과가 없습니다.
                 </TableCell>
               </TableRow>
@@ -98,7 +133,11 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
 
         {loading && (
           <div className="absolute inset-0 flex items-center justify-center bg-elevation-surface-default/60">
-            <SpinnerGapIcon size={24} className="animate-spin text-subtle" aria-label="로딩 중" />
+            <SpinnerGapIcon
+              size={24}
+              className="animate-spin text-subtle"
+              aria-label="로딩 중"
+            />
           </div>
         )}
       </div>
@@ -106,7 +145,8 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
       {table.getPageCount() > 1 && (
         <div className="flex items-center justify-between">
           <p className="body-12-regular text-subtle">
-            {table.getState().pagination.pageIndex + 1} / {table.getPageCount()} 페이지
+            {table.getState().pagination.pageIndex + 1} / {table.getPageCount()}{" "}
+            페이지
           </p>
           <div className="flex items-center gap-2">
             <Button
@@ -117,7 +157,12 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
             >
               이전
             </Button>
-            <Button appearance="ghost" size="sm" onClick={() => table.nextPage()} disabled={!table.getCanNextPage()}>
+            <Button
+              appearance="ghost"
+              size="sm"
+              onClick={() => table.nextPage()}
+              disabled={!table.getCanNextPage()}
+            >
               다음
             </Button>
           </div>
@@ -127,11 +172,11 @@ export function DataTable<TData>({ columns, data, pageSize = 5, loading }: DataT
   )
 }
 
-function SortIcon({ direction }: { direction: false | 'asc' | 'desc' }) {
-  if (direction === 'asc') {
+function SortIcon({ direction }: { direction: false | "asc" | "desc" }) {
+  if (direction === "asc") {
     return <ArrowUpIcon size={14} weight="bold" />
   }
-  if (direction === 'desc') {
+  if (direction === "desc") {
     return <ArrowDownIcon size={14} weight="bold" />
   }
   return <ArrowsDownUpIcon size={14} className="text-subtle" />

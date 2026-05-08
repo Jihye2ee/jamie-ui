@@ -1,10 +1,10 @@
-'use client'
+"use client"
 
-import { Button as BaseButton } from '@base-ui/react/button'
-import { cva, type VariantProps } from 'class-variance-authority'
-import type { ComponentProps, ReactNode } from 'react'
+import { Button as BaseButton } from "@base-ui/react/button"
+import { cva, type VariantProps } from "class-variance-authority"
+import type { ComponentProps, ReactNode } from "react"
 
-import { cn } from '../utils/cn'
+import { cn } from "../utils/cn"
 
 const iconButtonVariants = cva(
   cn(
@@ -24,8 +24,8 @@ const iconButtonVariants = cva(
       },
     },
     defaultVariants: {
-      appearance: 'ghost',
-      size: 'md',
+      appearance: "ghost",
+      size: "md",
     },
   },
 )
@@ -41,17 +41,17 @@ const buttonVariants = cva(
         subtle: `border border-default bg-neutral-subtle-default text-default before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-transparent before:to-black/[0.03] hover:bg-neutral-subtle-hovered active:bg-neutral-subtle-pressed`,
         ghost: `bg-transparent text-default hover:bg-interaction-hovered active:bg-interaction-pressed`,
         error: `bg-error-bold-default text-inverse before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:bg-gradient-to-b before:from-white/0 before:to-white/16 hover:bg-error-bold-hovered active:bg-error-bold-pressed`,
-        'error-subtle': `bg-error-default text-error hover:bg-error-hovered aria-pressed:bg-error-pressed`,
+        "error-subtle": `bg-error-default text-error hover:bg-error-hovered aria-pressed:bg-error-pressed`,
       },
       size: {
-        sm: 'h-6 gap-1 rounded-sm px-2 body-12-medium',
-        md: 'h-8 gap-1.5 rounded-md px-3 body-12-medium',
-        lg: 'h-10 gap-2 rounded-lg px-4 body-14-medium',
+        sm: "h-6 gap-1 rounded-sm px-2 body-12-medium",
+        md: "h-8 gap-1.5 rounded-md px-3 body-12-medium",
+        lg: "h-10 gap-2 rounded-lg px-4 body-14-medium",
       },
     },
     defaultVariants: {
-      appearance: 'default',
-      size: 'md',
+      appearance: "default",
+      size: "md",
     },
   },
 )
@@ -59,8 +59,8 @@ const buttonVariants = cva(
 type ButtonVariantProps = VariantProps<typeof buttonVariants>
 type IconButtonVariantProps = VariantProps<typeof iconButtonVariants>
 
-type ButtonAppearance = ButtonVariantProps['appearance']
-type IconButtonAppearance = IconButtonVariantProps['appearance']
+type ButtonAppearance = ButtonVariantProps["appearance"]
+type IconButtonAppearance = IconButtonVariantProps["appearance"]
 
 type BaseButtonProps = ComponentProps<typeof BaseButton>
 
@@ -74,7 +74,7 @@ type RegularButtonProps = {
   children?: ReactNode
 }
 
-export type ButtonProps = Omit<BaseButtonProps, 'className'> &
+export type ButtonProps = Omit<BaseButtonProps, "className"> &
   ButtonVariantProps & {
     loading?: boolean
     className?: string
@@ -82,8 +82,8 @@ export type ButtonProps = Omit<BaseButtonProps, 'className'> &
 
 export function Button({
   className,
-  appearance = 'default',
-  size = 'md',
+  appearance = "default",
+  size = "md",
   disabled,
   loading,
   children,
@@ -106,25 +106,27 @@ export function Button({
 
     return cn(
       baseClassName,
-      state.disabled && 'cursor-not-allowed opacity-50',
-      loading && 'pointer-events-none',
+      state.disabled && "cursor-not-allowed opacity-50",
+      loading && "pointer-events-none",
       className,
     )
   }
 
-  const dotSize = size === 'lg' ? 'size-1.5' : 'size-1'
-  const dotGap = size === 'lg' ? 'gap-1' : 'gap-[3px]'
+  const dotSize = size === "lg" ? "size-1.5" : "size-1"
+  const dotGap = size === "lg" ? "gap-1" : "gap-[3px]"
 
   return (
     <BaseButton
       className={getClassName}
       disabled={disabled}
       aria-busy={loading || undefined}
-      onClickCapture={loading ? (e: React.MouseEvent) => e.preventDefault() : undefined}
+      onClickCapture={
+        loading ? (e: React.MouseEvent) => e.preventDefault() : undefined
+      }
       onKeyDownCapture={
         loading
           ? (e: React.KeyboardEvent) => {
-              if (e.key === 'Enter' || e.key === ' ') e.preventDefault()
+              if (e.key === "Enter" || e.key === " ") e.preventDefault()
             }
           : undefined
       }
@@ -134,10 +136,31 @@ export function Button({
         child
       ) : (
         <>
-          <div className={cn('absolute inset-0 flex items-center justify-center', dotGap)} aria-hidden>
-            <span className={cn('animate-dot-bounce rounded-full bg-current', dotSize)} />
-            <span className={cn('animate-dot-bounce rounded-full bg-current [animation-delay:200ms]', dotSize)} />
-            <span className={cn('animate-dot-bounce rounded-full bg-current [animation-delay:400ms]', dotSize)} />
+          <div
+            className={cn(
+              "absolute inset-0 flex items-center justify-center",
+              dotGap,
+            )}
+            aria-hidden
+          >
+            <span
+              className={cn(
+                "animate-dot-bounce rounded-full bg-current",
+                dotSize,
+              )}
+            />
+            <span
+              className={cn(
+                "animate-dot-bounce rounded-full bg-current [animation-delay:200ms]",
+                dotSize,
+              )}
+            />
+            <span
+              className={cn(
+                "animate-dot-bounce rounded-full bg-current [animation-delay:400ms]",
+                dotSize,
+              )}
+            />
           </div>
           <span className="invisible">{child}</span>
         </>
@@ -148,7 +171,7 @@ export function Button({
 
 export { buttonVariants, iconButtonVariants }
 
-export type IconButtonComponentProps = Omit<BaseButtonProps, 'className'> &
+export type IconButtonComponentProps = Omit<BaseButtonProps, "className"> &
   IconButtonVariantProps & {
     className?: string
     children?: ReactNode
@@ -156,8 +179,8 @@ export type IconButtonComponentProps = Omit<BaseButtonProps, 'className'> &
 
 export function IconButton({
   className,
-  appearance = 'ghost',
-  size = 'md',
+  appearance = "ghost",
+  size = "md",
   disabled,
   children,
   ...props
@@ -165,7 +188,11 @@ export function IconButton({
   return (
     <BaseButton
       className={(state: { disabled: boolean }) =>
-        cn(iconButtonVariants({ appearance, size }), state.disabled && 'cursor-not-allowed opacity-50', className)
+        cn(
+          iconButtonVariants({ appearance, size }),
+          state.disabled && "cursor-not-allowed opacity-50",
+          className,
+        )
       }
       disabled={disabled}
       {...props}
