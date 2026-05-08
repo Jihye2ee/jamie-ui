@@ -72,22 +72,21 @@ jamie-ui/
 | Class Merging | tailwind-merge + clsx | ^3.0 / ^2.1 |
 | Framework (docs) | Next.js | ^16.1 |
 | Docs Engine | fumadocs-mdx / fumadocs-ui | ^14 / ^16 |
-| Linter | oxlint | 1.63.0 |
+| Linter | oxlint (with eslint-plugin-better-tailwindcss as JS plugin) | 1.63.0 / 4.5.0 |
 | Formatter | oxfmt | 0.48.0 |
 | Icons | @phosphor-icons/react | ^2.1.10 |
-| TW Linter | eslint-plugin-better-tailwindcss | 4.1.1 |
 
 ## Commands
 
 ```bash
 bun run dev          # Start docs dev server
 bun run build        # Build all packages
-bun run lint         # oxlint (packages + docs app/lib)
-bun run lint:tw      # Tailwind class ordering lint (eslint)
+bun run lint         # oxlint (TS + Tailwind class rules)
+bun run lint:fix     # oxlint --fix (auto-fix lint issues)
 bun run format       # oxfmt format with auto-fix
 bun run format:check # oxfmt format check (no write)
 bun run typecheck    # tsc --noEmit per package
-bun run check        # typecheck + oxlint + oxfmt check + TW lint
+bun run check        # typecheck + lint + format check
 ```
 
 ## Code Conventions
