@@ -1,10 +1,11 @@
 {
   "name": "jamie-ui",
   "devDependencies": {
-    "@biomejs/biome": "2.3.14",
     "@typescript-eslint/parser": "8.54.0",
     "eslint": "9.39.2",
     "eslint-plugin-better-tailwindcss": "4.1.1",
+    "oxfmt": "0.48.0",
+    "oxlint": "1.63.0",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.7.0"
   },
@@ -12,10 +13,12 @@
   "scripts": {
     "dev": "bun run --filter=@jamie-ui/docs dev",
     "build": "bun run --filter=* build",
-    "lint": "biome lint packages apps/docs/app apps/docs/lib",
+    "lint": "oxlint packages apps/docs/app apps/docs/lib",
     "lint:tw": "eslint --fix packages/ui apps/docs",
-    "format": "biome format --write packages apps/docs/app apps/docs/lib",
-    "check": "biome check --write packages apps/docs/app apps/docs/lib && bun run lint:tw"
+    "format": "oxfmt --write packages apps/docs/app apps/docs/lib",
+    "format:check": "oxfmt --check packages apps/docs/app apps/docs/lib",
+    "typecheck": "tsc --noEmit -p packages/ui/tsconfig.json && tsc --noEmit -p packages/json-render/tsconfig.json && tsc --noEmit -p apps/docs/tsconfig.json",
+    "check": "bun run typecheck && oxlint packages apps/docs/app apps/docs/lib && oxfmt --check packages apps/docs/app apps/docs/lib && bun run lint:tw"
   },
   "type": "module",
   "workspaces": [
