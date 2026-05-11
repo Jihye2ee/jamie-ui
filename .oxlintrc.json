@@ -1,0 +1,40 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "jsPlugins": ["eslint-plugin-better-tailwindcss"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "rules": {
+    "@typescript-eslint/no-non-null-assertion": "off",
+    "@typescript-eslint/consistent-type-imports": "error",
+    "@typescript-eslint/no-explicit-any": "warn",
+    "no-underscore-dangle": "off",
+    "unicorn/no-array-sort": "off",
+    "eslint/no-unused-vars": ["error", { "args": "none", "varsIgnorePattern": "^_" }],
+    "eslint/prefer-const": "error",
+    "eslint/eqeqeq": ["error", "smart"],
+    "better-tailwindcss/enforce-consistent-class-order": "warn",
+    "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+    "better-tailwindcss/enforce-canonical-classes": "warn",
+    "better-tailwindcss/no-duplicate-classes": "warn",
+    "better-tailwindcss/no-deprecated-classes": "warn",
+    "better-tailwindcss/no-unnecessary-whitespace": "warn",
+    "better-tailwindcss/no-unknown-classes": "off",
+    "better-tailwindcss/no-conflicting-classes": "error"
+  },
+  "settings": {
+    "better-tailwindcss": {
+      "entryPoint": "apps/docs/app/globals.css",
+      "callees": ["cn", "cva", "clsx"]
+    }
+  },
+  "ignorePatterns": [
+    "node_modules",
+    ".next",
+    ".source",
+    "dist",
+    "out"
+  ]
+}

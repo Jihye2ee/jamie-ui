@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { Tooltip as BaseTooltip } from '@base-ui/react/tooltip'
-import type { ComponentProps, ReactNode } from 'react'
+import { Tooltip as BaseTooltip } from "@base-ui/react/tooltip"
+import type { ComponentProps, ReactNode } from "react"
 
-import { cn } from '../utils/cn'
+import { cn } from "../utils/cn"
 
 type TooltipProviderProps = ComponentProps<typeof BaseTooltip.Provider>
 
@@ -28,16 +28,16 @@ export function TooltipTrigger(props: TooltipTriggerProps) {
 type TooltipContentProps = {
   children: ReactNode
   className?: string
-  side?: 'top' | 'bottom' | 'left' | 'right'
-  align?: 'start' | 'center' | 'end'
+  side?: "top" | "bottom" | "left" | "right"
+  align?: "start" | "center" | "end"
   sideOffset?: number
 }
 
 export function TooltipContent({
   children,
   className,
-  side = 'top',
-  align = 'center',
+  side = "top",
+  align = "center",
   sideOffset = 8,
 }: TooltipContentProps) {
   return (
@@ -45,7 +45,7 @@ export function TooltipContent({
       <BaseTooltip.Positioner side={side} align={align} sideOffset={sideOffset}>
         <BaseTooltip.Popup
           className={cn(
-            'max-w-xs origin-[var(--transform-origin)] rounded-md bg-neutral-bold-default px-2.5 py-1.5 body-12-medium text-inverse transition-[transform,scale,opacity] outline-none data-[ending-style]:scale-95 data-[ending-style]:opacity-0 data-[starting-style]:scale-95 data-[starting-style]:opacity-0',
+            "max-w-xs origin-(--transform-origin) rounded-md bg-neutral-bold-default px-2.5 py-1.5 body-12-medium text-inverse transition-[transform,scale,opacity] outline-none data-ending-style:scale-95 data-ending-style:opacity-0 data-starting-style:scale-95 data-starting-style:opacity-0",
             className,
           )}
         >

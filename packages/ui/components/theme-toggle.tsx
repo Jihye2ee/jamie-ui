@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { MoonIcon, SunIcon } from '@phosphor-icons/react'
-import { useTheme } from 'next-themes'
+import { MoonIcon, SunIcon } from "@phosphor-icons/react"
+import { useTheme } from "next-themes"
 
-import { Button } from './button'
+import { Button } from "./button"
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme()
@@ -12,7 +12,7 @@ export function ThemeToggle() {
       appearance="ghost"
       size="sm"
       icon={<ThemeIcon />}
-      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+      onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     />
   )
 }

@@ -9,10 +9,7 @@ import { Button } from "@jamie-ui/ui/components/button"
 import { Card } from "@jamie-ui/ui/components/card"
 import { Checkbox } from "@jamie-ui/ui/components/checkbox"
 import { CheckboxGroup } from "@jamie-ui/ui/components/checkbox-group"
-import {
-  RadioGroup,
-  Radio as UIRadio,
-} from "@jamie-ui/ui/components/radio"
+import { RadioGroup, Radio as UIRadio } from "@jamie-ui/ui/components/radio"
 import {
   SelectContent,
   SelectRoot,
@@ -146,7 +143,6 @@ export const { registry } = defineRegistry(catalog, {
       </Button>
     ),
 
-
     Avatar: ({ props }) => (
       <Avatar
         src={props.src ?? undefined}
@@ -188,9 +184,7 @@ export const { registry } = defineRegistry(catalog, {
     RadioGroup: ({ props, children }) => (
       <RadioGroup
         className={
-          props.orientation === "horizontal"
-            ? "flex flex-row gap-4"
-            : undefined
+          props.orientation === "horizontal" ? "flex flex-row gap-4" : undefined
         }
       >
         {children}
@@ -249,16 +243,12 @@ export const { registry } = defineRegistry(catalog, {
     Dialog: ({ props, children }) => (
       <DialogRoot defaultOpen modal={false}>
         <DialogContent
-          size={
-            (props.size ?? "default") as "default" | "md" | "lg"
-          }
+          size={(props.size ?? "default") as "default" | "md" | "lg"}
         >
           <DialogHeader>
             <DialogTitle>{props.title}</DialogTitle>
             {props.description && (
-              <DialogDescription>
-                {props.description}
-              </DialogDescription>
+              <DialogDescription>{props.description}</DialogDescription>
             )}
           </DialogHeader>
           {children && <DialogFooter>{children}</DialogFooter>}
@@ -271,9 +261,7 @@ export const { registry } = defineRegistry(catalog, {
         <AlertDialogContent>
           <AlertDialogTitle>{props.title}</AlertDialogTitle>
           {props.description && (
-            <AlertDialogDescription>
-              {props.description}
-            </AlertDialogDescription>
+            <AlertDialogDescription>{props.description}</AlertDialogDescription>
           )}
           <AlertDialogFooter>
             <Button appearance="subtle" size="md">
@@ -281,9 +269,7 @@ export const { registry } = defineRegistry(catalog, {
             </Button>
             <Button
               appearance={
-                (props.confirmAppearance ?? "default") as
-                  | "default"
-                  | "error"
+                (props.confirmAppearance ?? "default") as "default" | "error"
               }
               size="md"
             >
@@ -330,13 +316,9 @@ export const { registry } = defineRegistry(catalog, {
           {props.triggerLabel}
         </PopoverTrigger>
         <PopoverContent>
-          {props.title && (
-            <PopoverTitle>{props.title}</PopoverTitle>
-          )}
+          {props.title && <PopoverTitle>{props.title}</PopoverTitle>}
           {props.description && (
-            <PopoverDescription>
-              {props.description}
-            </PopoverDescription>
+            <PopoverDescription>{props.description}</PopoverDescription>
           )}
           {children}
         </PopoverContent>
@@ -347,7 +329,9 @@ export const { registry } = defineRegistry(catalog, {
       const options = props.options ?? []
       return (
         <Combobox
-          items={options.map((opt: { label: string; value: string }) => opt.label)}
+          items={options.map(
+            (opt: { label: string; value: string }) => opt.label,
+          )}
           size={(props.inputSize ?? "md") as "md" | "sm"}
           disabled={props.disabled ?? false}
           placeholder={props.placeholder ?? "Search..."}
@@ -357,10 +341,7 @@ export const { registry } = defineRegistry(catalog, {
 
     Toast: ({ props }) => {
       const appearance = props.appearance ?? "default"
-      const iconMap: Record<
-        string,
-        typeof CheckCircleIcon
-      > = {
+      const iconMap: Record<string, typeof CheckCircleIcon> = {
         warning: WarningCircleIcon,
         error: XCircleIcon,
         success: CheckCircleIcon,
@@ -370,8 +351,7 @@ export const { registry } = defineRegistry(catalog, {
         error: "fill-error",
         success: "fill-success",
       }
-      const Icon =
-        appearance !== "default" ? iconMap[appearance] : null
+      const Icon = appearance !== "default" ? iconMap[appearance] : null
       return (
         <div
           className={cn(
@@ -388,11 +368,9 @@ export const { registry } = defineRegistry(catalog, {
             />
           )}
           <div className="flex-1">
-            <p className="title-14-semibold text-default">
-              {props.title}
-            </p>
+            <p className="title-14-semibold text-default">{props.title}</p>
             {props.description && (
-              <p className="body-12-medium mt-0.5 text-subtle">
+              <p className="mt-0.5 body-12-medium text-subtle">
                 {props.description}
               </p>
             )}

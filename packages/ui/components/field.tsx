@@ -1,9 +1,9 @@
-'use client'
+"use client"
 
-import { Field as BaseField } from '@base-ui/react/field'
-import { createContext, type ReactNode, useContext, useId } from 'react'
+import { Field as BaseField } from "@base-ui/react/field"
+import { createContext, type ReactNode, useContext, useId } from "react"
 
-import { cn } from '../utils/cn'
+import { cn } from "../utils/cn"
 
 type FieldContextValue = {
   controlId: string
@@ -29,13 +29,22 @@ type FieldProps = {
   disabled?: boolean
 }
 
-export function Field({ label, description, error, children, className, name, disabled = false }: FieldProps) {
+export function Field({
+  label,
+  description,
+  error,
+  children,
+  className,
+  name,
+  disabled = false,
+}: FieldProps) {
   const generatedId = useId()
   const controlId = `field-${generatedId}`
   const descriptionId = description ? `field-desc-${generatedId}` : undefined
   const errorId = error ? `field-error-${generatedId}` : undefined
 
-  const _describedBy = [descriptionId, errorId].filter(Boolean).join(' ') || undefined
+  const _describedBy =
+    [descriptionId, errorId].filter(Boolean).join(" ") || undefined
 
   return (
     <FieldContext.Provider
@@ -51,7 +60,7 @@ export function Field({ label, description, error, children, className, name, di
         invalid={!!error}
         name={name}
         disabled={disabled}
-        className={cn('flex flex-col gap-1', className)}
+        className={cn("flex flex-col gap-1", className)}
       >
         {label && (
           <label htmlFor={controlId} className="body-12-medium text-subtle">

@@ -1,17 +1,20 @@
-'use client'
+"use client"
 
-import type { CheckboxRoot } from '@base-ui/react/checkbox'
-import { Checkbox as BaseCheckbox } from '@base-ui/react/checkbox'
-import { CheckIcon, MinusIcon } from '@phosphor-icons/react'
-import type { ReactNode } from 'react'
+import type { CheckboxRoot } from "@base-ui/react/checkbox"
+import { Checkbox as BaseCheckbox } from "@base-ui/react/checkbox"
+import { CheckIcon, MinusIcon } from "@phosphor-icons/react"
+import type { ReactNode } from "react"
 
-import { cn } from '../utils/cn'
+import { cn } from "../utils/cn"
 
 type CheckboxItemProps = {
-  size?: 'md' | 'sm'
+  size?: "md" | "sm"
   checked?: boolean
   defaultChecked?: boolean
-  onCheckedChange?: (checked: boolean, eventDetails: CheckboxRoot.ChangeEventDetails) => void
+  onCheckedChange?: (
+    checked: boolean,
+    eventDetails: CheckboxRoot.ChangeEventDetails,
+  ) => void
   indeterminate?: boolean
   disabled?: boolean
   name?: string
@@ -24,13 +27,13 @@ type CheckboxItemProps = {
 }
 
 const checkboxSizeClasses = {
-  md: 'size-5 rounded-[5px]',
-  sm: 'size-4 rounded-[4px]',
+  md: "size-5 rounded-[5px]",
+  sm: "size-4 rounded-[4px]",
 } as const
 
 const checkboxWithLabelSizeClasses = {
-  md: 'size-4 rounded-[4px]',
-  sm: 'size-4 rounded-[4px]',
+  md: "size-4 rounded-[4px]",
+  sm: "size-4 rounded-[4px]",
 } as const
 
 const checkboxIconSize = {
@@ -44,12 +47,14 @@ const checkboxWithLabelIconSize = {
 } as const
 
 export function CheckboxItem({
-  size = 'md',
+  size = "md",
   className,
   withLabel = false,
   ...props
 }: CheckboxItemProps & { withLabel?: boolean }) {
-  const sizeClasses = withLabel ? checkboxWithLabelSizeClasses : checkboxSizeClasses
+  const sizeClasses = withLabel
+    ? checkboxWithLabelSizeClasses
+    : checkboxSizeClasses
   const iconSize = withLabel ? checkboxWithLabelIconSize : checkboxIconSize
 
   return (
@@ -57,22 +62,22 @@ export function CheckboxItem({
       <BaseCheckbox.Root
         {...props}
         className={cn(
-          'inline-flex shrink-0 cursor-pointer items-center justify-center border transition-colors duration-150 ease-out',
-          'border-strong bg-input-default',
-          'hover:bg-input-hovered',
-          'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--border-color-focused)]',
-          'data-[checked]:border-transparent data-[checked]:bg-neutral-bold-default data-[checked]:hover:bg-neutral-bold-hovered',
-          'data-[indeterminate]:border-transparent data-[indeterminate]:bg-neutral-bold-default data-[indeterminate]:hover:bg-neutral-bold-hovered',
-          'data-[disabled]:cursor-not-allowed data-[disabled]:border-disabled data-[disabled]:bg-input-disabled data-[disabled]:hover:bg-input-disabled',
-          'data-[disabled]:data-[checked]:border-transparent data-[disabled]:data-[checked]:bg-disabled data-[disabled]:data-[checked]:hover:bg-disabled',
-          'data-[disabled]:data-[indeterminate]:border-transparent data-[disabled]:data-[indeterminate]:bg-disabled data-[disabled]:data-[indeterminate]:hover:bg-disabled',
+          "inline-flex shrink-0 cursor-pointer items-center justify-center border transition-colors duration-150 ease-out",
+          "border-strong bg-input-default",
+          "hover:bg-input-hovered",
+          "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--border-color-focused)",
+          "data-checked:border-transparent data-checked:bg-neutral-bold-default data-checked:hover:bg-neutral-bold-hovered",
+          "data-indeterminate:border-transparent data-indeterminate:bg-neutral-bold-default data-indeterminate:hover:bg-neutral-bold-hovered",
+          "data-disabled:cursor-not-allowed data-disabled:border-disabled data-disabled:bg-input-disabled data-disabled:hover:bg-input-disabled",
+          "data-disabled:data-checked:border-transparent data-disabled:data-checked:bg-disabled data-disabled:data-checked:hover:bg-disabled",
+          "data-disabled:data-indeterminate:border-transparent data-disabled:data-indeterminate:bg-disabled data-disabled:data-indeterminate:hover:bg-disabled",
           sizeClasses[size],
           className,
         )}
       >
         <BaseCheckbox.Indicator
           keepMounted
-          className="flex items-center justify-center text-inverse data-[unchecked]:hidden"
+          className="flex items-center justify-center text-inverse data-unchecked:hidden"
           render={(renderProps, state) => (
             <span {...renderProps}>
               {state.indeterminate ? (
@@ -90,10 +95,13 @@ export function CheckboxItem({
 
 type CheckboxProps = {
   label: ReactNode
-  size?: 'md' | 'sm'
+  size?: "md" | "sm"
   checked?: boolean
   defaultChecked?: boolean
-  onCheckedChange?: (checked: boolean, eventDetails: CheckboxRoot.ChangeEventDetails) => void
+  onCheckedChange?: (
+    checked: boolean,
+    eventDetails: CheckboxRoot.ChangeEventDetails,
+  ) => void
   indeterminate?: boolean
   disabled?: boolean
   name?: string
@@ -105,21 +113,35 @@ type CheckboxProps = {
 }
 
 const labelTextClasses = {
-  md: 'body-14-regular',
-  sm: 'body-12-regular',
+  md: "body-14-regular",
+  sm: "body-12-regular",
 } as const
 
-export function Checkbox({ label, size = 'md', disabled = false, className, ...props }: CheckboxProps) {
+export function Checkbox({
+  label,
+  size = "md",
+  disabled = false,
+  className,
+  ...props
+}: CheckboxProps) {
   return (
     <label
       className={cn(
-        'inline-flex cursor-pointer items-center gap-1 select-none',
-        disabled && 'cursor-not-allowed',
+        "inline-flex cursor-pointer items-center gap-1 select-none",
+        disabled && "cursor-not-allowed",
         className,
       )}
     >
       <CheckboxItem size={size} disabled={disabled} withLabel {...props} />
-      <span className={cn(labelTextClasses[size], 'text-default', disabled && 'text-disabled')}>{label}</span>
+      <span
+        className={cn(
+          labelTextClasses[size],
+          "text-default",
+          disabled && "text-disabled",
+        )}
+      >
+        {label}
+      </span>
     </label>
   )
 }
